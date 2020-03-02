@@ -19,18 +19,23 @@ namespace Assets.Scripts.Models
         }
 
         public void Attack(Detachment detachment) =>
-            detachment.GetDamage(Damage);
+            detachment.ReceiveDamage(Damage);
 
-        public void GetDamage(int value)
+        public void ReceiveDamage(int value)
         {
             //TODO: Amount change.
-            Health -= value - Defence;
+            Health -= value - Defense;
+        }
+
+        public void Step()
+        {
+
         }
 
         public int Damage => 
             Amount * Settings.Units.Parameters(Type).Damage;
 
-        public int Defence =>
-            Amount * Settings.Units.Parameters(Type).Defence;
+        public int Defense =>
+            Amount * Settings.Units.Parameters(Type).Defense;
     }
 }
