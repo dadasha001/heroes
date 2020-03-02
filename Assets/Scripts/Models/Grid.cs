@@ -19,7 +19,8 @@ public class Grid
         _grid = new Detachment[Width, Height];
     }
 
-    public Detachment this[int i, int j] {
+    public Detachment this[int i, int j] 
+    {
         get => _grid[i, j];
         set {
             _grid[i, j] = value;
@@ -29,12 +30,14 @@ public class Grid
         }
     }
 
-    public Detachment this[(int i, int j) position] {
+    public Detachment this[(int i, int j) position] 
+    {
         get => this[position.i, position.j];
         set => this[position.i, position.j] = value;
     }
 
-    public IEnumerable<(int, int)> PlayerSide {
+    public IEnumerable<(int, int)> PlayerSide 
+    {
         get {
             int i = 0;
 
@@ -43,7 +46,8 @@ public class Grid
         }
     }
 
-    public IEnumerable<(int, int)> EnemySide {
+    public IEnumerable<(int, int)> EnemySide 
+    {
         get {
             int i = 0;
 
