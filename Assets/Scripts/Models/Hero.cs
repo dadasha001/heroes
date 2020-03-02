@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Models
 {
@@ -9,7 +10,15 @@ namespace Assets.Scripts.Models
         public Hero() =>
             Detachments = new List<Detachment>();
 
+        public void Add(Detachment detachment)
+        {
+            if (Detachments.Count >= Settings.Detachments.Limit)
+                throw new Exception("Exceeding the limit of detachments!");
+
+            Detachments.Add(detachment);
+        }
+
         public void Add(Unit.Type type, int amount) =>
-            Detachments.Add(new Detachment(type, amount));
+            Add(new Detachment(type, amount));
     }
 }
