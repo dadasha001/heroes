@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Models.Behaviours;
+using System;
 
 namespace Assets.Scripts.Models
 {
@@ -25,11 +26,6 @@ namespace Assets.Scripts.Models
         {
             //TODO: Amount change.
             Health -= value - Defense;
-        }
-
-        public void Step()
-        {
-
         }
 
         public int Damage => 
