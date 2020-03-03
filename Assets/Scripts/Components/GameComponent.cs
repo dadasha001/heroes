@@ -25,6 +25,13 @@ namespace Assets.Scripts.Components
 
             var enemyDisplayComponent = FindObjectOfType<EnemyDisplayComponent>();
             enemyDisplayComponent.Hero = Game.Heroes[1];
+
+            //while (Game.Continue())
+            //{
+            //    var current = Game.Detachments.Dequeue();
+            //    current.Step();
+            //    Game.Detachments.Enqueue(current);
+            //}
         }
     }
 }
