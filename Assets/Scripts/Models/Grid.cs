@@ -38,7 +38,8 @@ public class Grid
 
     public IEnumerable<(int, int)> PlayerSide 
     {
-        get {
+        get 
+        {
             int i = 0;
 
             while (i < Height)
@@ -48,7 +49,8 @@ public class Grid
 
     public IEnumerable<(int, int)> EnemySide 
     {
-        get {
+        get 
+        {
             int i = 0;
 
             while (i < Height)
@@ -78,4 +80,9 @@ public class Grid
             if (_grid[x, y] == detachment)
                 this[x, y] = null;
     }
+
+    //public bool IsAdjacent(Detachment first, Detachment second)
+    //{
+
+    //}
 }
