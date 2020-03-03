@@ -8,14 +8,14 @@ namespace Assets.Scripts.Models
     {
         private static Random _random = new Random();
 
-        public Grid Grid { get; }
-        public List<Hero> Heroes { get; }
-
-        private Queue<Detachment> _detachments;
+        public Grid Grid { get; private set; }
+        public List<Hero> Heroes { get; private set; }
+        public Queue<Detachment> Detachments { get; private set; }
 
         public Game()
         {
             Grid = new Grid(Settings.Grid.Width, Settings.Grid.Height);
+            Detachments = new Queue<Detachment>();
 
             Heroes = new List<Hero>()
             {
@@ -31,20 +31,13 @@ namespace Assets.Scripts.Models
 
             foreach (var hero in Heroes)
             foreach (var detachment in hero.Detachments)
-                _detachments.Enqueue(detachment);
+                Detachments.Enqueue(detachment);
 
-            _detachments.OrderByDescending(x => x.Speed);
+            Detachments.OrderByDescending(x => x.Speed);
         }
 
         public bool Continue() =>
             Heroes.All(x => x.Detachments.Count != 0);
-
-        public void Play()
-        {
-            var detachment = _detachments.Dequeue();
-            detachment.Step();
-            _detachments.Enqueue(detachment);
-        }
 
         private void GenerateArmy(Hero hero)
         {
