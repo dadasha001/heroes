@@ -17,7 +17,7 @@ namespace Assets.Scripts.Components
             var grid = Instantiate(Grid, transform);
             var gridComponent = grid.GetComponent<GridComponent>();
 
-            gridComponent.Grid = Game.Grid;
+            gridComponent.Battleground = Game.Battleground;
             gridComponent.Game = Game;
 
             var playerDisplayComponent = FindObjectOfType<PlayerDisplayComponent>();
@@ -25,13 +25,6 @@ namespace Assets.Scripts.Components
 
             var enemyDisplayComponent = FindObjectOfType<EnemyDisplayComponent>();
             enemyDisplayComponent.Hero = Game.Heroes[1];
-
-            //while (Game.Continue())
-            //{
-            //    var current = Game.Detachments.Dequeue();
-            //    current.Step();
-            //    Game.Detachments.Enqueue(current);
-            //}
         }
     }
 }

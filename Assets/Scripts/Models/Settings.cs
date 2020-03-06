@@ -9,7 +9,7 @@ namespace Assets.Scripts.Models
             public static int Limit = 7;
         }
 
-        public static class Grid
+        public static class Battleground
         {
             public static int Width = 10;
             public static int Height = 7;

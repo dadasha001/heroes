@@ -8,13 +8,13 @@ namespace Assets.Scripts.Models
     {
         private static Random _random = new Random();
 
-        public Grid Grid { get; private set; }
+        public Battleground Battleground { get; private set; }
         public List<Hero> Heroes { get; private set; }
         public Queue<Detachment> Detachments { get; private set; }
 
         public Game()
         {
-            Grid = new Grid(Settings.Grid.Width, Settings.Grid.Height);
+            Battleground = new Battleground(Settings.Battleground.Width, Settings.Battleground.Height);
             Detachments = new Queue<Detachment>();
 
             Heroes = new List<Hero>()
@@ -53,15 +53,15 @@ namespace Assets.Scripts.Models
         private void SetPlayer()
         {
             int i = 0;
-            foreach (var cell in Grid.PlayerSide.Take(Heroes[0].Detachments.Count))
-                Grid[cell] = Heroes[0].Detachments[i++];
+            foreach (var cell in Battleground.PlayerSide.Take(Heroes[0].Detachments.Count))
+                Battleground[cell] = Heroes[0].Detachments[i++];
         }
 
         private void SetEnemy()
         {
             int i = 0;
-            foreach (var cell in Grid.EnemySide.Take(Heroes[1].Detachments.Count))
-                Grid[cell] = Heroes[1].Detachments[i++];
+            foreach (var cell in Battleground.EnemySide.Take(Heroes[1].Detachments.Count))
+                Battleground[cell] = Heroes[1].Detachments[i++];
         }
     }
 }

@@ -2,74 +2,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridComponent : MonoBehaviour
+namespace Assets.Scripts.Components
 {
-    public GameObject EmptyTile;
-    public GameObject ArcherTile;
-    public GameObject WizardTile;
-    public GameObject KnightTile;
-    public GameObject DragonTile;
-    public GameObject InfantryTile;
-
-    public Grid Grid;
-    public Game Game;
-
-    private List<GameObject> _objects;
-
-    private void Start()
+    public class GridComponent : MonoBehaviour
     {
-        _objects = new List<GameObject>();
+        public GameObject EmptyTile;
+        public GameObject ArcherTile;
+        public GameObject WizardTile;
+        public GameObject KnightTile;
+        public GameObject DragonTile;
+        public GameObject InfantryTile;
 
-        Grid.Changed += UpdateGrid;
-        GenerateGrid();
-    }
+        public Battleground Battleground;
+        public Game Game;
 
-    private void GenerateGrid()
-    {
-        for (int x = 0; x < Grid.Width; x++)
-        for (int y = 0; y < Grid.Height; y++)
+        private List<GameObject> _objects;
+
+        private void Start()
         {
-            var tile = Place(x, y);
-            _objects.Add(tile);
+            _objects = new List<GameObject>();
 
-            tile.name = $"Tile[{x}, {y}]";
-            tile.transform.position = new Vector2(x, y);            
+            Battleground.Changed += UpdateGrid;
+            GenerateGrid();
         }
 
-        GameObject Place(int x, int y)
+        private void GenerateGrid()
         {
-            var tile = Grid[x, y];
-            GameObject @object = null;
+            for (int x = 0; x < Battleground.Width; x++)
+                for (int y = 0; y < Battleground.Height; y++)
+                {
+                    var tile = Place(x, y);
+                    _objects.Add(tile);
 
-            if (tile == null)
-                return Instantiate(EmptyTile, transform);
+                    tile.name = $"Tile[{x}, {y}]";
+                    tile.transform.position = new Vector2(x, y);
+                }
 
-            if (tile.Type == Unit.Type.Archer)
-                @object = Instantiate(ArcherTile, transform);
-            if (tile.Type == Unit.Type.Wizard)
-                @object = Instantiate(WizardTile, transform);
-            if (tile.Type == Unit.Type.Dragon)
-                @object = Instantiate(DragonTile, transform);
-            if (tile.Type == Unit.Type.Infantry)
-                @object = Instantiate(InfantryTile, transform);           
-            if (tile.Type == Unit.Type.Knight)
-                @object = Instantiate(KnightTile, transform);
-
-            if (x == Grid.Width - 1)
+            GameObject Place(int x, int y)
             {
-                var sprite = @object.GetComponent<SpriteRenderer>();
-                sprite.flipX = true;
+                var tile = Battleground[x, y];
+                GameObject @object = null;
+
+                if (tile == null)
+                    return Instantiate(EmptyTile, transform);
+
+                if (tile.Type == Unit.Type.Archer)
+                    @object = Instantiate(ArcherTile, transform);
+                if (tile.Type == Unit.Type.Wizard)
+                    @object = Instantiate(WizardTile, transform);
+                if (tile.Type == Unit.Type.Dragon)
+                    @object = Instantiate(DragonTile, transform);
+                if (tile.Type == Unit.Type.Infantry)
+                    @object = Instantiate(InfantryTile, transform);
+                if (tile.Type == Unit.Type.Knight)
+                    @object = Instantiate(KnightTile, transform);
+
+                if (x == Battleground.Width - 1)
+                {
+                    var sprite = @object.GetComponent<SpriteRenderer>();
+                    sprite.flipX = true;
+                }
+
+                return @object;
             }
-
-            return @object;
         }
-    }
 
-    private void UpdateGrid()
-    {
-        foreach (var @object in _objects)
-            Destroy(@object);
+        private void UpdateGrid()
+        {
+            foreach (var @object in _objects)
+                Destroy(@object);
 
-        GenerateGrid();
+            GenerateGrid();
+        }
     }
 }

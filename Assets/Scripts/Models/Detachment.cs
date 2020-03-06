@@ -1,7 +1,4 @@
-﻿using Assets.Scripts.Models.Behaviours;
-using System;
-
-namespace Assets.Scripts.Models
+﻿namespace Assets.Scripts.Models
 {
     public class Detachment
     {
