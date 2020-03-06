@@ -92,9 +92,6 @@ namespace Assets.Scripts.Models
 
         public bool IsAdjacent(Detachment first, Detachment second)
         {
-            if (first == second)
-                throw new Exception();
-
             var firstPosition = Position(first);
             var secondPosition = Position(second);
 
