@@ -66,7 +66,14 @@ namespace Assets.Scripts.Models
             if (IsInRange(x, y + 1)) yield return (x, y + 1);
             if (IsInRange(x - 1, y)) yield return (x - 1, y);
             if (IsInRange(x, y - 1)) yield return (x, y - 1);
+            if (IsInRange(x + 1, y + 1)) yield return (x + 1, y + 1);
+            if (IsInRange(x - 1, y - 1)) yield return (x - 1, y - 1);
+            if (IsInRange(x + 1, y - 1)) yield return (x + 1, y - 1);
+            if (IsInRange(x - 1, y + 1)) yield return (x - 1, y + 1);
         }
+
+        public IEnumerable<(int X, int Y)> Neighbours((int X, int Y) position) =>
+            Neighbours(position.X, position.Y);
 
         public bool IsInRange((int X, int Y) position) =>
             IsInRange(position.X, position.Y);
@@ -91,12 +98,11 @@ namespace Assets.Scripts.Models
             var firstPosition = Position(first);
             var secondPosition = Position(second);
 
-            if (Math.Abs(firstPosition.X - secondPosition.X) > 1)
-                return false;
-            if (Math.Abs(firstPosition.Y - secondPosition.Y) > 1)
-                return false;
+            foreach (var neighbour in Neighbours(firstPosition))
+                if (neighbour == secondPosition)
+                    return true;
 
-            return true;
+            return false;
         }
 
         public (int X, int Y) Position(Detachment detachment)
