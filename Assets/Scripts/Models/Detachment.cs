@@ -25,7 +25,7 @@
             Health -= value - Defense;
         }
 
-        public int Damage => 
+        public int Damage =>
             Amount * Settings.Units.Parameters(Type).Damage;
 
         public int Defense =>

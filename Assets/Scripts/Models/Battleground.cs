@@ -20,11 +20,9 @@ namespace Assets.Scripts.Models
             _grid = new Detachment[Width, Height];
         }
 
-        public Detachment this[int i, int j] 
-        {
+        public Detachment this[int i, int j] {
             get => _grid[i, j];
-            set 
-            {
+            set {
                 _grid[i, j] = value;
 
                 if (Changed != null)
@@ -32,16 +30,13 @@ namespace Assets.Scripts.Models
             }
         }
 
-        public Detachment this[(int i, int j) position] 
-        {
+        public Detachment this[(int i, int j) position] {
             get => this[position.i, position.j];
             set => this[position.i, position.j] = value;
         }
 
-        public IEnumerable<(int, int)> PlayerSide 
-        {
-            get 
-            {
+        public IEnumerable<(int, int)> PlayerSide {
+            get {
                 int i = 0;
 
                 while (i < Height)
@@ -49,10 +44,8 @@ namespace Assets.Scripts.Models
             }
         }
 
-        public IEnumerable<(int, int)> EnemySide 
-        {
-            get 
-            {
+        public IEnumerable<(int, int)> EnemySide {
+            get {
                 int i = 0;
 
                 while (i < Height)
@@ -85,9 +78,9 @@ namespace Assets.Scripts.Models
         public void Remove(Detachment detachment)
         {
             for (int x = 0; x < Width; x++)
-            for (int y = 0; y < Height; y++)
-                if (_grid[x, y] == detachment)
-                    this[x, y] = null;
+                for (int y = 0; y < Height; y++)
+                    if (_grid[x, y] == detachment)
+                        this[x, y] = null;
         }
 
         public bool IsAdjacent(Detachment first, Detachment second)
@@ -105,11 +98,11 @@ namespace Assets.Scripts.Models
         public (int X, int Y) Position(Detachment detachment)
         {
             for (int x = 0; x < Width; x++)
-            for (int y = 0; y < Height; y++)
-                if (_grid[x, y] == detachment)
-                    return (x, y);
+                for (int y = 0; y < Height; y++)
+                    if (_grid[x, y] == detachment)
+                        return (x, y);
 
-            throw new Exception("");
+            throw new Exception();
         }
 
         public void Move(Detachment detachment, (int X, int Y) position)
@@ -117,7 +110,11 @@ namespace Assets.Scripts.Models
             if (detachment == null)
                 throw new NullReferenceException();
 
+            Remove(detachment);
+            this[position] = detachment;
+
             //TODO: Path search.
         }
     }
 }
+

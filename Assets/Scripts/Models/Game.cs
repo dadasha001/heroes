@@ -6,7 +6,7 @@ namespace Assets.Scripts.Models
 {
     public class Game
     {
-        private static Random _random = new Random();
+        private Random _random = new Random();
 
         public Battleground Battleground { get; private set; }
         public List<Hero> Heroes { get; private set; }
@@ -36,8 +36,26 @@ namespace Assets.Scripts.Models
             Detachments.OrderByDescending(x => x.Speed);
         }
 
-        public bool Continue() =>
-            Heroes.All(x => x.Detachments.Count != 0);
+        public bool Continues() =>
+            Heroes.Count(x => x.Detachments.Count > 0) > 1;
+
+        public Detachment Dequeue()
+        {
+            while (Detachments.Any())
+            {
+                var detachment = Detachments.Dequeue();
+                if (detachment.Health > 0)
+                    return detachment;
+            }
+
+            throw new Exception("...");
+        }
+
+        public void Enqueue(Detachment detachment)
+        {
+            if (detachment.Health > 0)
+                Detachments.Equals(detachment);
+        }
 
         private void GenerateArmy(Hero hero)
         {
@@ -46,7 +64,7 @@ namespace Assets.Scripts.Models
                 int type = _random.Next(5);
                 int amount = _random.Next(1, 31);
 
-                hero.Detachments.Add(new Detachment((Unit.Type)type, amount));
+                hero.Detachments.Add(new Detachment((Unit.Type) type, amount));
             }
         }
 

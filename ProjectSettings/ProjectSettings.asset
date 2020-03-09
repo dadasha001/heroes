@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 0868161d5859c5d409dce4aa72b25730
+  productGUID: e1da0c26cdc63094cb40b227acbdbc40
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Heroes
+  productName: HeroesGame
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -591,9 +591,9 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: b1d8e551-c4bd-40a9-a6a7-f524ed3e0352
+  cloudProjectId: 6eb934c0-b259-48c7-b7cd-0c910e4d4503
   framebufferDepthMemorylessMode: 0
-  projectName: Heroes
+  projectName: HeroesGame
   organizationId: daria_ogr
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

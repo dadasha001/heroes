@@ -18,3 +18,4 @@
             Battleground.Move(Detachment, (x, y));
     }
 }
+

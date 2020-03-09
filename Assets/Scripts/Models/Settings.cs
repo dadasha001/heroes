@@ -4,7 +4,7 @@ namespace Assets.Scripts.Models
 {
     public static class Settings
     {
-        public static class Detachments 
+        public static class Detachments
         {
             public static int Limit = 7;
         }
@@ -51,3 +51,4 @@ namespace Assets.Scripts.Models
         }
     }
 }
+

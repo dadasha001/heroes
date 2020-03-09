@@ -6,6 +6,7 @@ namespace Assets.Scripts.Components
     public class GameComponent : MonoBehaviour
     {
         public GameObject Grid;
+        public GameObject BattleComponent;
 
         public Hero Hero;
         public Game Game;
@@ -19,6 +20,10 @@ namespace Assets.Scripts.Components
 
             gridComponent.Battleground = Game.Battleground;
             gridComponent.Game = Game;
+
+            var battle = Instantiate(BattleComponent, transform);
+            var battleComponent = battle.GetComponent<BattleComponent>();
+            battleComponent.Game = Game;
 
             var playerDisplayComponent = FindObjectOfType<PlayerDisplayComponent>();
             playerDisplayComponent.Hero = Game.Heroes[0];

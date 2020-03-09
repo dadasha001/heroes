@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Models;
+using Assets.Scripts.Models.Behaviours;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +41,7 @@ namespace Assets.Scripts.Components
 
             GameObject Place(int x, int y)
             {
+                IBehaviour behaviour;
                 var tile = Battleground[x, y];
                 GameObject @object = null;
 
@@ -57,10 +59,26 @@ namespace Assets.Scripts.Components
                 if (tile.Type == Unit.Type.Knight)
                     @object = Instantiate(KnightTile, transform);
 
+                if (tile.Type == Unit.Type.Archer || tile.Type == Unit.Type.Wizard)
+                    behaviour = new Ranged();
+                else
+                    behaviour = new Melee();
+
                 if (x == Battleground.Width - 1)
                 {
+                    var enemy = @object.AddComponent<EnemyComponent>();
+                    enemy.Behaviour = behaviour;
+                    enemy.Enemy = Game.Heroes[0];
+                    enemy.Behaviour.Control(Battleground, Battleground[x, y]);
+
                     var sprite = @object.GetComponent<SpriteRenderer>();
                     sprite.flipX = true;
+                }
+                else
+                {
+                    var player = @object.AddComponent<PlayerComponent>();
+                    player.Behaviour = behaviour;
+                    player.Behaviour.Control(Battleground, Battleground[x, y]);
                 }
 
                 return @object;

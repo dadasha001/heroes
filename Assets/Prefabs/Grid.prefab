@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5398968277807746965
+--- !u!1 &6465108068765736262
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1272361610819340488}
-  - component: {fileID: 7138962637779464865}
-  - component: {fileID: 3056539826837828106}
+  - component: {fileID: 8349750186525072755}
+  - component: {fileID: 6619214982885452772}
+  - component: {fileID: 281840039886927502}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -18,27 +18,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1272361610819340488
+--- !u!4 &8349750186525072755
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398968277807746965}
+  m_GameObject: {fileID: 6465108068765736262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4109077, y: -0.5530094, z: -0.075544834}
+  m_LocalPosition: {x: 384.40784, y: 146.2638, z: -7.9183693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7138962637779464865
+--- !u!212 &6619214982885452772
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398968277807746965}
+  m_GameObject: {fileID: 6465108068765736262}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,37 +80,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3056539826837828106
+--- !u!114 &281840039886927502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398968277807746965}
+  m_GameObject: {fileID: 6465108068765736262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592396757d69d4a4380e088fe68ced81, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e2f21e082c700a4f98790e07e8af2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyTile: {fileID: 3478684017666313789, guid: 47d9e7d8d080b27468abcb9f33bd4a7f,
+  EmptyTile: {fileID: 2337039390324896104, guid: 24e5fb4f0f7f27d499bce07c0e42e31f,
     type: 3}
-  ArcherTile: {fileID: 1091375452237024229, guid: aefd37525da563445a3574af83887429,
+  ArcherTile: {fileID: 269954389243657368, guid: 1ba3480b71514f14c88b1b1cff9ac011,
     type: 3}
-  WizardTile: {fileID: 5767898985778248797, guid: 2a7590b0109f8a24d9be082369366b0d,
+  WizardTile: {fileID: 5664643589778935558, guid: f7549e818cca91f4e86ff71177ef3707,
     type: 3}
-  KnightTile: {fileID: 6652309892080535694, guid: e797e9edd018191429b9a61e754ea73f,
+  KnightTile: {fileID: 4488939467080427512, guid: bcee5ca4486b0b44e9923895e3f044b0,
     type: 3}
-  DragonTile: {fileID: 4414233398346893030, guid: e7dac03e7615b6042a31b6143a8152ac,
+  DragonTile: {fileID: 4123640855731603775, guid: 1b2bc1c336df83d40a76b1b35c647e20,
     type: 3}
-  InfantryTile: {fileID: 1212417001201150506, guid: bc971452886e650498720482f4188b75,
-    type: 3}
-  EnemyArcherTile: {fileID: 5611458287605597110, guid: 47bcd3aee40e81b45bd710e89b7480a7,
-    type: 3}
-  EnemyWizardTile: {fileID: 110181267174776127, guid: f1eaae8ed6f6e3a4989217450e2ab527,
-    type: 3}
-  EnemyKnightTile: {fileID: 1639381922182484650, guid: 73c0b71209c81c9438c0433d5c9f8912,
-    type: 3}
-  EnemyDragonTile: {fileID: 8197823326435482576, guid: 9ef33f8affe92e54a99efefab9a1748c,
-    type: 3}
-  EnemyInfantryTile: {fileID: 6413023308080146527, guid: 3de21d88066b09543bfe639dc6db7f84,
+  InfantryTile: {fileID: 8240994850130639979, guid: 1dde4e82614cc054a935e3ada4609c01,
     type: 3}

@@ -22,3 +22,4 @@ namespace Assets.Scripts.Models
             Add(new Detachment(type, amount));
     }
 }
+
